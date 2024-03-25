@@ -1,3 +1,3 @@
-module study
+module go-study
 
 go 1.21
