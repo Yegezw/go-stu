@@ -18,6 +18,7 @@ func test3() {
 	}
 
 	animal = cat
+	animal = &cat // 也可以
 	animal.AnimalInfo()
 
 	// animal = dog 编译报错
@@ -44,7 +45,7 @@ type Cat struct {
 }
 
 // 值接收者
-// 类型 *Cat 实现了 Animal 接口
+// 类型 Cat 实现了 Animal 接口
 
 func (cat Cat) AnimalInfo() {
 	fmt.Printf("Name = %s, Age = %d\n", cat.Name, cat.Age)

@@ -11,7 +11,9 @@ func test6() {
 
 	num := 100
 
+	// 创建指针, 不会为 p 分配内存
 	var ptr *int
+	fmt.Println("ptr =", ptr)
 	ptr = &num
 
 	fmt.Println("ptr 的大小为:", unsafe.Sizeof(ptr))
@@ -21,6 +23,10 @@ func test6() {
 	*ptr = 1000
 	fmt.Println("ptr 的值为:", ptr)
 	fmt.Println("*ptr 的值为:", *ptr)
+
+	// 创建指针, 会为 p 分配内存
+	p := new(string)
+	fmt.Println("p =", p)
 
 	// a &^ b = a & (^b)
 	// a &^ b = 清除 a 中 ab 都为 1 的位

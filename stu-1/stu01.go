@@ -9,11 +9,47 @@ import (
 func test1() {
 	fmt.Println("----------------------test1----------------------")
 
-	var a int     // 默认 0
+	/*
+		bool
+
+		string
+
+		int  int8  int16  int32  int64
+		uint uint8 uint16 uint32 uint64 uintptr
+
+		byte // uint8 的别名
+
+		rune // int32 的别名
+			 // 表示一个 Unicode 码位
+
+		float32 float64
+
+		complex64 complex128
+
+		类型转换
+		i := 42
+		f := float64(i)
+		u := uint(f)
+
+		%b 二进制
+		%c 字符
+		%s 字符串
+		%t 布尔值
+		%d 整数
+		%g 小数
+		%x 字节 (16 进制整数)
+		%p 16 进制指针地址
+		%T 类型
+		%v 默认格式的值
+		%q 带双引号的字符串
+	*/
+
+	var a int     // 默认 0      常用
 	var b int = 1 // 初始化
 	var c = 2     // 省略 type
-	d := 3        // 省略 var
-	fmt.Println(a, b, c, d)
+	d := 3        // 省略 var    常用
+	var e error
+	fmt.Println(a, b, c, d, e)
 
 	// 多变量声明
 	num1, num2 := 1, 2

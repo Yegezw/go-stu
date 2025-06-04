@@ -23,6 +23,9 @@ func test2() {
 
 	// ------------ 切片初始化 ------------
 
+	// 切片就像数组的引用, 并不存储任何数据, 它只是描述了底层数组中的一段
+	// len() + cap(), l 会改变 cap、r 不会改变 cap
+
 	var slice1 []int
 	slice1 = append(slice1, 1, 2)
 	fmt.Println("slice1 =", slice1)
@@ -35,7 +38,7 @@ func test2() {
 	slice3 = strArr[1:3]
 	fmt.Println("slice3 =", slice3)
 
-	// 默认容量 = 长度
+	// 切片类型、初始化长度、默认容量 = 长度
 	slice4 := make([]int, 2)
 	slice4 = append(slice4, 5, 6)
 	fmt.Println("slice4 =", slice4)
@@ -52,4 +55,8 @@ func test2() {
 	dic2[9] = "apple"
 	dic2[6] = "banana"
 	fmt.Println("dic2 =", dic2)
+
+	delete(dic1, "apple")
+	num, ok := dic1["apple"]
+	fmt.Println(num, ok)
 }

@@ -9,7 +9,7 @@ import (
 func test11() {
 	fmt.Println("----------------------test11----------------------")
 
-	// 创建 strings.Reader
+	// *strings.Reader &{Hello, Reader! 0 -1} 实现了 io/Reader
 	r := strings.NewReader("Hello, Reader!")
 
 	// 切片

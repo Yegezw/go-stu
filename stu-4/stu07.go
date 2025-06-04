@@ -16,6 +16,7 @@ func test7() {
 
 	// 若 i 并未保存 string 类型的值, 该语句就会触发一个恐慌
 	// 为了 "判断" 一个接口值是否保存了一个特定的类型, 类型断言可返回两个值: 底层值 + 报告断言是否成功的布尔值
+	// 类似 instance of
 	s, ok := i.(string)
 	fmt.Println(s, ok)
 

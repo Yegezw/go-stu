@@ -12,11 +12,16 @@ func test4() {
 
 	i = F(math.Pi)
 	i.M()
-	describe(i)
+	describe(i) // (3.141592653589793, main.F)
 
 	i = &T{S: "apple"}
 	i.M()
-	describe(i)
+	describe(i) // (&{apple}, *main.T)
+
+	i = new(T)
+	describe(i)         // (&{}, *main.T)
+	i.(*T).S = "banana" // 类型断言
+	i.M()
 }
 
 // ----------------------------------------------------------

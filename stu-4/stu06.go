@@ -7,14 +7,15 @@ import (
 func test6() {
 	fmt.Println("----------------------test6----------------------")
 
+	// var i any
 	var i interface{}
-	printInfo(i)
+	printInfo(i) // (<nil>, <nil>)
 
 	i = 42
-	printInfo(i)
+	printInfo(i) // (42, int)
 
 	i = "hello world"
-	printInfo(i)
+	printInfo(i) // (hello world, string)
 }
 
 // ----------------------------------------------------------

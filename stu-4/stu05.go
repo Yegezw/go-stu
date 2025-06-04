@@ -12,20 +12,21 @@ func test5() {
 	// 正常情况
 	i = &SS{S: "banana"}
 	i.N()
-	info(i)
+	info(i) // (&{banana}, *main.SS)
 
 	// 底层值为 nil 的接口值
 	// 即便接口内的具体值为 nil, 方法仍然会被 nil 接收者调用
 	var s *SS
 	i = s
 	i.N()
-	info(i)
+	info(i) // (<nil>, *main.SS)
 
 	// nil 接口值
 	// nil 接口值既不保存值也不保存具体类型
 	// 为 nil 接口调用方法会产生运行时错误, 因为接口的元组内并未包含能够指明该调用哪个 "具体" 方法的类型
+	// 注意: 保存了 nil 具体值的接口, 其自身并不为 nil (<nil>, <nil>)
 	i = nil
-	info(i)
+	info(i) // (<nil>, <nil>)
 	// i.N() 报错
 }
 
