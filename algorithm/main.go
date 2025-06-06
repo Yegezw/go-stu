@@ -4,9 +4,16 @@ import "fmt"
 
 func main() {
 	testSearch()
+	fmt.Println()
+
 	testSort()
+	fmt.Println()
+
 	testArray()
+	fmt.Println()
+
 	testDequeue()
+	fmt.Println()
 }
 
 func testSearch() {
@@ -66,8 +73,8 @@ func testArray() {
 			it.Remove()
 			continue
 		}
-		fmt.Println(e)
 	}
+	fmt.Println(array)
 }
 
 func testDequeue() {
@@ -80,8 +87,6 @@ func testDequeue() {
 		}
 		fmt.Println(dequeue)
 	}
-
-	fmt.Println()
 
 	for i := 0; !dequeue.IsEmpty(); i++ {
 		if (i & 1) == 0 {
