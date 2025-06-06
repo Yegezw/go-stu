@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 func main() {
 	testSearch()
@@ -16,6 +19,9 @@ func main() {
 	fmt.Println()
 
 	testLinkedList()
+	fmt.Println()
+
+	testBST()
 	fmt.Println()
 }
 
@@ -123,4 +129,64 @@ func testLinkedList() {
 	fmt.Println(list.GetSize())
 	fmt.Println(list.GetFirst())
 	fmt.Println(list.GetLast())
+}
+
+func testBST() {
+	compare := func(a, b int) int {
+		return a - b
+	}
+	bst := NewBST(compare)
+
+	arr := []int{1, 4, 2, 5, 9, 6, 8, 3, 7}
+	for _, v := range arr {
+		bst.Add(v)
+	}
+	var order []int
+	for !bst.IsEmpty() {
+		order = append(order, bst.RemoveMin())
+	}
+	fmt.Println(order)
+
+	//      5      //
+	//    /   \    //
+	//   3     6   //
+	//  / \     \  //
+	// 2   4     8 //
+	arr = []int{5, 3, 6, 8, 4, 2}
+	for _, v := range arr {
+		bst.Add(v)
+	}
+	fmt.Println(bst.PreOrder())   // 5 3 2 4 6 8
+	fmt.Println(bst.InOrder())    // 2 3 4 5 6 8
+	fmt.Println(bst.PostOrder())  // 2 4 3 8 6 5
+	fmt.Println(bst.LevelOrder()) // 5 3 6 2 4 8
+	bst.Remove(3)
+	fmt.Println(bst.LevelOrder()) // 5 4 6 2 8
+
+	bst.Clear()
+	for i := 1; i < 10; i += 2 {
+		bst.Add(i)
+	}
+	fmt.Println("1 3 5 7 9")
+
+	fmt.Print("floor : ")
+	for i := 0; i <= 10; i++ {
+		res, ok := bst.Floor(i)
+		if ok {
+			fmt.Print(strconv.Itoa(res), " ")
+		} else {
+			fmt.Print("nil ")
+		}
+	}
+	fmt.Println()
+
+	fmt.Print("ceil  : ")
+	for i := 0; i <= 10; i++ {
+		res, ok := bst.Ceil(i)
+		if ok {
+			fmt.Print(strconv.Itoa(res), " ")
+		} else {
+			fmt.Print("nil ")
+		}
+	}
 }
