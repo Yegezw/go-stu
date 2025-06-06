@@ -5,6 +5,7 @@ import "fmt"
 func main() {
 	testSearch()
 	testSort()
+	testArray()
 }
 
 func testSearch() {
@@ -33,4 +34,37 @@ func testSort() {
 	QuickSort(arr, lt, gt) // 快速排序
 
 	fmt.Println(arr)
+}
+
+func testArray() {
+	defer func() {
+		if err := recover(); err != nil {
+			fmt.Println(err)
+		}
+	}()
+
+	array1 := NewArrayFromSlice([]int{1, 2, 3})
+	array2 := NewArrayFromSlice([]int{4, 5, 6})
+	slice1 := array1.ToSlice()
+	slice2 := array2.ToSlice()
+
+	array := NewEmptyArray[int]()
+	for _, v := range slice1 {
+		array.AddLast(v)
+	}
+	for _, v := range slice2 {
+		array.AddFirst(v)
+	}
+	fmt.Println(array)
+
+	it := array.Iterator()
+	for it.HasNext() {
+		e := it.Next()
+		// 删除偶数
+		if (e & 1) == 0 {
+			it.Remove()
+			continue
+		}
+		fmt.Println(e)
+	}
 }
