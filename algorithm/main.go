@@ -6,6 +6,7 @@ func main() {
 	testSearch()
 	testSort()
 	testArray()
+	testDequeue()
 }
 
 func testSearch() {
@@ -66,5 +67,28 @@ func testArray() {
 			continue
 		}
 		fmt.Println(e)
+	}
+}
+
+func testDequeue() {
+	dequeue := NewDefaultDequeue[int]()
+	for i := 0; i < 16; i++ {
+		if (i & 1) == 0 {
+			dequeue.AddLast(i)
+		} else {
+			dequeue.AddFront(i)
+		}
+		fmt.Println(dequeue)
+	}
+
+	fmt.Println()
+
+	for i := 0; !dequeue.IsEmpty(); i++ {
+		if (i & 1) == 0 {
+			dequeue.RemoveFront()
+		} else {
+			dequeue.RemoveLast()
+		}
+		fmt.Println(dequeue)
 	}
 }
