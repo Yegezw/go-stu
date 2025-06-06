@@ -14,6 +14,9 @@ func main() {
 
 	testDequeue()
 	fmt.Println()
+
+	testLinkedList()
+	fmt.Println()
 }
 
 func testSearch() {
@@ -96,4 +99,28 @@ func testDequeue() {
 		}
 		fmt.Println(dequeue)
 	}
+}
+
+func testLinkedList() {
+	list := NewLinkedList[int]()
+	for i := 0; i < 7; i++ {
+		list.AddFirst(i)
+		fmt.Println(list)
+	}
+
+	list.Add(2, 666)
+	list.AddLast(666)
+	fmt.Println(list)
+
+	list.RemoveElement(666)
+	fmt.Println(list)
+
+	list.Remove(1)
+	list.RemoveFirst()
+	list.RemoveLast()
+	fmt.Println(list)
+
+	fmt.Println(list.GetSize())
+	fmt.Println(list.GetFirst())
+	fmt.Println(list.GetLast())
 }
